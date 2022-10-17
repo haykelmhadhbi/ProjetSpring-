@@ -11,9 +11,10 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Builder // constructeur personaliser nhot fih ay parametr nhebo alih w la 7ata parametr 7or ,on eliminer @nonnull  mtaa requireargsconstructer pas que on va ccree par exp deux construceur chacun aa un attribut unique
 @ToString
-//@Data taml mochkl avec base de donner ki namlou serialstion ysir confilt w kol donc hiya tawdh les anotation kol ama nekhdmouch beha
+//@Data : fiha lkol mais taml mochkl avec base de donner ki namlou serialstion ysir confilt w kol donc hiya tawdh les anotation kol ama nekhdmouch beha
 
 public class Departement implements Serializable {
     @Id

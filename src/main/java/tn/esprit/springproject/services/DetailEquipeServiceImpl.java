@@ -7,7 +7,7 @@ import tn.esprit.springproject.repositories.DetailEquipeRepository;
 
 import java.util.List;
 
-@Service
+@Service//declarer un composant app ala couche service
 public class DetailEquipeServiceImpl implements  IDetailEquipeService {
       DetailEquipeRepository detailEquipeRepository ;
 

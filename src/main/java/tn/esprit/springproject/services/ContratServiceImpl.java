@@ -11,8 +11,9 @@ import tn.esprit.springproject.repositories.ContratRepository;
 import java.util.List;
 
 //@Component
-@Service //takrah bin w tamala instance fi ioc eli houwa service don nimplementa contartservicimpl comme instance fi ioc
-//bech najmou netsamlo methode mawjouda fi reostryw nijcethouh lena fi serviice par @authoward
+
+@Service //takrah beann w tamala instance fi ioc eli houwa service don nimplementa contartservicimpl comme instance fi ioc
+//bech najmou netsamlo methode mawjouda fi repostery nijcethouh lena fi serviice par @authoward
 //@AllArgsConstructor  si malmlnach injection constructer heki tkoum b wajeb
 public class ContratServiceImpl implements IContratService {
 
