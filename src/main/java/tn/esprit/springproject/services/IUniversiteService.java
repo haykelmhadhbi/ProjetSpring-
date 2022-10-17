@@ -1,5 +1,6 @@
 package tn.esprit.springproject.services;
 
+import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.Universite;
 
 import java.util.List;

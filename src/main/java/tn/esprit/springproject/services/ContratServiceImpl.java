@@ -22,7 +22,7 @@ public class ContratServiceImpl implements IContratService {
     //les methode fi jparepostry mta contratrepostry rahoo fi service len tu es  autoriser d'utiliser les methode hekom
 
 
-    public ContratServiceImpl(ContratRepository contratRepository) {
+    public ContratServiceImpl(ContratRepository contratRepository ) {
         this.contratRepository = contratRepository;
     }
 

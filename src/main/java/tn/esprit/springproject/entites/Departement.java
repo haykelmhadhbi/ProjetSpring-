@@ -26,7 +26,8 @@ public class Departement implements Serializable {
 
     @OneToMany  (cascade = CascadeType.ALL, mappedBy="depart")
     private Set<Etudiant> etdiant;
-    //new Departement departement = Departement.builder().nomDepart("info").build();
+
+   //  Departement departement = Departement.builder().nomDepart("info").build();
 
 
 
