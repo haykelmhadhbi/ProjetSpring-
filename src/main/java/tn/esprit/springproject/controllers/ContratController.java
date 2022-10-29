@@ -10,8 +10,8 @@ import java.util.List;
 
 //@Controller //ma sprinb mvc tekdhem abec de vew wost app matatikch ddonner format json
 @RestController//ll requet web http kahaw yansalk requet http = @controller +@Responsebody directment exposer de rest api donc restcontrroller
-@AllArgsConstructor
 @RequestMapping("contratt")
+@AllArgsConstructor
 
 public class ContratController {
 
