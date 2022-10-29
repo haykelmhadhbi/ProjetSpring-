@@ -1,9 +1,6 @@
 package tn.esprit.springproject.entites;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +9,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class Etudiant implements Serializable {
@@ -29,7 +27,7 @@ public class Etudiant implements Serializable {
     @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
     private Set<Equipe> equipes;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idDepart")
 
     Departement depart;

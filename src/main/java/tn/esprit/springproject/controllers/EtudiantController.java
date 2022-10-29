@@ -37,6 +37,7 @@ public class EtudiantController {
     }
     @GetMapping("afficheralletduiant/{id}")
     Etudiant retrieveEtudiant(@PathVariable  Integer id){
+
         return etudiantService.retrieveEtudiant(id);
     }
 
@@ -48,5 +49,10 @@ public class EtudiantController {
     void assignEtudiantToDepartement (@PathVariable Integer etudiantId ,@PathVariable Integer departementId){
         etudiantService.assignEtudiantToDepartement(etudiantId ,departementId );
     }
+    @PutMapping ("/ajouterAndAffecterEtuToContandEquip/{idContrat}/{idEquipe}")
+     Etudiant ajouterAndAffecterEtudiantToEquipeAndContract(@RequestBody  Etudiant e,@PathVariable Integer idContrat,@PathVariable Integer idEquipe) {
+        return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat, idEquipe );
+     }
+
 
 }

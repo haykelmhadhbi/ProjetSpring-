@@ -25,6 +25,7 @@ public class ContratServiceImpl implements IContratService {
 
 
     public ContratServiceImpl(ContratRepository contratRepository ) {
+
         this.contratRepository = contratRepository;
     }
 

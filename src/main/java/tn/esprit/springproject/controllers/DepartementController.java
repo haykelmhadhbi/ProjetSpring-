@@ -8,13 +8,13 @@ import tn.esprit.springproject.services.IDepartmentService;
 import java.util.List;
 @RestController
 @AllArgsConstructor
-@RequestMapping("department")
+@RequestMapping("departmentt")
 public class DepartementController {
 
     IDepartmentService departmentService ;
 
 
-    @GetMapping("/get")
+    @GetMapping
     List<Departement> AfficherAllDeprtrment  (){
         return departmentService.retrieveAllDepartment();
     }

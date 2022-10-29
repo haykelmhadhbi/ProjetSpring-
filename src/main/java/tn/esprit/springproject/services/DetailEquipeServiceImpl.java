@@ -1,5 +1,6 @@
 package tn.esprit.springproject.services;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.DetailEquipe;
 import tn.esprit.springproject.entites.Equipe;
@@ -8,6 +9,8 @@ import tn.esprit.springproject.repositories.DetailEquipeRepository;
 import java.util.List;
 
 @Service//declarer un composant app ala couche service
+@Slf4j
+
 public class DetailEquipeServiceImpl implements  IDetailEquipeService {
       DetailEquipeRepository detailEquipeRepository ;
 

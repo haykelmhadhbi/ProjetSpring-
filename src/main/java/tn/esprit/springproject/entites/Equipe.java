@@ -27,7 +27,7 @@ public class Equipe implements Serializable {
     @OneToOne( cascade = CascadeType.ALL)//ki nzid equipe nzid maha detail equipe
     private DetailEquipe  Detail_equipe ;
 
-    @ManyToMany //( cascade = CascadeType.ALL)
+    @ManyToMany ( cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
 
 

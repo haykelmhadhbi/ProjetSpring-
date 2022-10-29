@@ -2,6 +2,7 @@ package tn.esprit.springproject.services;
 
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.Departement;
 import tn.esprit.springproject.repositories.DepartementRepository;
@@ -9,10 +10,15 @@ import tn.esprit.springproject.repositories.DepartementRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+
+@Slf4j
+
 public class DepartementServiceImpl implements  IDepartmentService {
 
     DepartementRepository departementRepository ;
+    public DepartementServiceImpl (DepartementRepository departementRepository){
+        this.departementRepository=departementRepository;
+    }
 
     @Override
     public List<Departement> retrieveAllDepartment() {
@@ -39,11 +45,7 @@ public class DepartementServiceImpl implements  IDepartmentService {
          return departementRepository.findById(id).orElse(null);
     }
 
-    @Override
-    public void assignDepartmentToEtudiant (Integer idC) {
-        return ;
 
-    }
 
     /*public DepartementServiceImpl(DepartementRepository departementRepository) {
         this.departementRepository = departementRepository;

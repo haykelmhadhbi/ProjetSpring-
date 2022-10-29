@@ -17,7 +17,6 @@ public interface IDepartmentService {
 
     Departement retrieveDepartment (Integer id);
 
-    void assignDepartmentToEtudiant (Integer idC);
 
 
 

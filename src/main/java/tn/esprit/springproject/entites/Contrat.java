@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Setter
 @Getter
-
+@EqualsAndHashCode
 @NoArgsConstructor //constructeur vide de cette classe
 
 @AllArgsConstructor //constructer eli fih le parametre mtaa3i kol
