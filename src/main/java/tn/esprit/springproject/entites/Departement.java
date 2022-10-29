@@ -1,6 +1,8 @@
 package tn.esprit.springproject.entites;
 
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,11 +23,15 @@ public class Departement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)//on ne peut pas acceder en tant que setter
     private Integer idDepart ;
+
     private  String nomDepart ;
 
 
     @OneToMany  (cascade = CascadeType.ALL, mappedBy="depart")
+    @LazyCollection(LazyCollectionOption.FALSE)
+
     private Set<Etudiant> etdiant;
+
 
    //  Departement departement = Departement.builder().nomDepart("info").build();
 

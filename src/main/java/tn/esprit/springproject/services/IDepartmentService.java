@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IDepartmentService {
 
-    List <Departement> retrieveAllContrat ();
+    List <Departement> retrieveAllDepartment ();
 
     Departement addDepartment (Departement d);
 

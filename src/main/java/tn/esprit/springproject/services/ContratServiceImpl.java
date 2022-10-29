@@ -2,6 +2,7 @@ package tn.esprit.springproject.services;
 
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.List;
 @Service //takrah beann w tamala instance fi ioc eli houwa service don nimplementa contartservicimpl comme instance fi ioc
 //bech najmou netsamlo methode mawjouda fi repostery nijcethouh lena fi serviice par @authoward
 //@AllArgsConstructor  si malmlnach injection constructer heki tkoum b wajeb
+@Slf4j
 public class ContratServiceImpl implements IContratService {
 
     //@Autowired
@@ -29,6 +31,8 @@ public class ContratServiceImpl implements IContratService {
 
     @Override
     public List<Contrat> retrieveAllContrat() {
+        log.info("recuperation ToTale");
+
         return contratRepository.findAll() ;
     }
 

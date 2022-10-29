@@ -11,6 +11,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("detaill")
+
 public class DetailEquipeController {
     IDetailEquipeService detailEquipeService ;
 

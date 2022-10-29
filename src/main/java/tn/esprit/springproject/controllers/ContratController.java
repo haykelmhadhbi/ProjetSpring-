@@ -1,5 +1,6 @@
 package tn.esprit.springproject.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import tn.esprit.springproject.services.IContratService;
 import java.util.List;
 
 //@Controller //ma sprinb mvc tekdhem abec de vew wost app matatikch ddonner format json
+@Tag(name = "")
 @RestController//ll requet web http kahaw yansalk requet http = @controller +@Responsebody directment exposer de rest api donc restcontrroller
 @RequestMapping("contratt")
 @AllArgsConstructor

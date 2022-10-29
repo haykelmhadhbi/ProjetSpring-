@@ -30,6 +30,8 @@ public class Etudiant implements Serializable {
     private Set<Equipe> equipes;
 
     @ManyToOne
+    @JoinColumn(name = "idDepart")
+
     Departement depart;
 
 }

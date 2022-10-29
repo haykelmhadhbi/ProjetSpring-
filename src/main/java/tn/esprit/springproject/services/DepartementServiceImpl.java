@@ -15,7 +15,7 @@ public class DepartementServiceImpl implements  IDepartmentService {
     DepartementRepository departementRepository ;
 
     @Override
-    public List<Departement> retrieveAllContrat() {
+    public List<Departement> retrieveAllDepartment() {
         return departementRepository.findAll();
     }
 

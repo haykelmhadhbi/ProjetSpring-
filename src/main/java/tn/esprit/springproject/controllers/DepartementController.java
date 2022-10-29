@@ -14,9 +14,9 @@ public class DepartementController {
     IDepartmentService departmentService ;
 
 
-    @GetMapping
-    List<Departement> retrieveAllContrat (){
-        return departmentService.retrieveAllContrat();
+    @GetMapping("/get")
+    List<Departement> AfficherAllDeprtrment  (){
+        return departmentService.retrieveAllDepartment();
     }
 
 

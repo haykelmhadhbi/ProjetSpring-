@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/equipe")
+@RequestMapping("equipe")
 public class EquipeController {
     IEquipeService equipeService ;
 
