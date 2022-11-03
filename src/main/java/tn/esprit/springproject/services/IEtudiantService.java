@@ -21,4 +21,8 @@ public interface IEtudiantService {
     public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId) ;
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe);
 
+    List<Etudiant> getEtudiantsByDepartement (Integer idDepartement);
+
+
+
 }

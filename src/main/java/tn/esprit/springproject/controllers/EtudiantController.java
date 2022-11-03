@@ -41,10 +41,7 @@ public class EtudiantController {
         return etudiantService.retrieveEtudiant(id);
     }
 
-    @PostMapping("ajouteretdudiantpourdepartment/{idet} {iddep}")
-    void ajouterEtudiantToDepartement (@PathVariable Integer idet ,@PathVariable Integer iddep  ){
-        etudiantService.assignEtudiantToDepartement(idet , iddep);
-    }
+
     @PutMapping ("/affecterE/{etudiantId}/{departementId}")
     void assignEtudiantToDepartement (@PathVariable Integer etudiantId ,@PathVariable Integer departementId){
         etudiantService.assignEtudiantToDepartement(etudiantId ,departementId );
@@ -52,6 +49,10 @@ public class EtudiantController {
     @PutMapping ("/ajouterAndAffecterEtuToContandEquip/{idContrat}/{idEquipe}")
      Etudiant ajouterAndAffecterEtudiantToEquipeAndContract(@RequestBody  Etudiant e,@PathVariable Integer idContrat,@PathVariable Integer idEquipe) {
         return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat, idEquipe );
+     }
+     @GetMapping ("getEtudiantsByDepartement/{idDep} ")
+    List <Etudiant> displayEtudiantsByDepartement (@PathVariable Integer idDep){
+        return  etudiantService.getEtudiantsByDepartement(idDep);
      }
 
 

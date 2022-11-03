@@ -11,5 +11,6 @@ public interface ContratRepository extends JpaRepository<Contrat ,Integer > {//k
     //no le type premitive dima typoe wrraper mem type id ama mech primitive dima wrapper nhotou(long hiya primitivi w Longe hiya wraaper)
 //crudrepostry basci qui peut fournir de crud basic
 
+
 }
 

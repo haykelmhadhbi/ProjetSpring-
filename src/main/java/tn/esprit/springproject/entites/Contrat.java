@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Setter
 @Getter
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @NoArgsConstructor //constructeur vide de cette classe
 
 @AllArgsConstructor //constructer eli fih le parametre mtaa3i kol
@@ -36,7 +36,7 @@ public class Contrat implements Serializable {
     private Boolean archive ;
     private Integer montantContrat ;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     Etudiant etudian;
 
 

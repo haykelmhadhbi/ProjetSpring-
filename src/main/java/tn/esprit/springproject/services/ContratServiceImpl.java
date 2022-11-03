@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.Contrat;
+import tn.esprit.springproject.entites.Etudiant;
 import tn.esprit.springproject.repositories.ContratRepository;
+import tn.esprit.springproject.repositories.EtudiantRepository;
 
 import java.util.List;
 
@@ -21,12 +23,14 @@ public class ContratServiceImpl implements IContratService {
 
     //@Autowired
     ContratRepository contratRepository ;
+    EtudiantRepository etudiantRepository;
     //les methode fi jparepostry mta contratrepostry rahoo fi service len tu es  autoriser d'utiliser les methode hekom
 
 
-    public ContratServiceImpl(ContratRepository contratRepository ) {
+    public ContratServiceImpl(ContratRepository contratRepository ,  EtudiantRepository etudiantRepository) {
 
         this.contratRepository = contratRepository;
+        this.etudiantRepository=etudiantRepository;
     }
 
 
@@ -57,8 +61,22 @@ public class ContratServiceImpl implements IContratService {
         return contratRepository.findById(id).orElse(null);
     }
 
+
     @Override
-    public void assignContratToEtudiant(Integer idC) {
+    public Contrat affectContratToEtudiant(Contrat ce, String nomE, String prenomE) {
+       Etudiant Et1 = etudiantRepository.retriecEtudiantByNomEtPrenom(prenomE , nomE);
+       Etudiant Et2 = etudiantRepository.retriecEtudiantOuContratInf5(Et1.getIdEtudiant());
+        if (Et2.equals(Et1)){
+            ce.setEtudian(Et2);
+
+        }
+        else {
+            return  null;
+        }
+        contratRepository.save(ce);
+        return  ce ;
 
     }
+
+
 }

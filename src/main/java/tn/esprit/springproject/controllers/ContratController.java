@@ -10,7 +10,6 @@ import tn.esprit.springproject.services.IContratService;
 import java.util.List;
 
 //@Controller //ma sprinb mvc tekdhem abec de vew wost app matatikch ddonner format json
-@Tag(name = "")
 @RestController//ll requet web http kahaw yansalk requet http = @controller +@Responsebody directment exposer de rest api donc restcontrroller
 @RequestMapping("contratt")
 @AllArgsConstructor
@@ -46,6 +45,10 @@ public class ContratController {
         return  contratService.retrieveContrat(id);
 
     }
+     @PutMapping("contratToetudiant/{nomE}/{prenomeE} " )
+    Contrat addContratToEtudiant ( @RequestBody  Contrat ce, @PathVariable String nomE,@PathVariable String prenomE){
+        return  contratService.affectContratToEtudiant( ce , nomE , prenomE);
+     }
 
 
 

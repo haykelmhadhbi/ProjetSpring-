@@ -18,6 +18,8 @@ public class Etudiant implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEtudiant;
     private String prenomE;
+    private String nomE;
+
     @Enumerated(EnumType.STRING)
     private Option opt ;
 

@@ -58,8 +58,8 @@ public class EtudiantServiceImpl implements  IEtudiantService {
 
     @Override
     public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
-        Etudiant Etu = etudiantRepository.findById(etudiantId).get();
-        Departement Dep = departementRepository.findById(departementId).get();
+        Etudiant Etu = etudiantRepository.findById(etudiantId).orElse(null);
+        Departement Dep = departementRepository.findById(departementId).orElse(null);
 
         Etu.setDepart(Dep);
         etudiantRepository.save(Etu);
@@ -67,19 +67,8 @@ public class EtudiantServiceImpl implements  IEtudiantService {
 
     @Override
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe) {
-        Contrat cont = contratRepository.findById(idContrat).get();
-        Equipe equip = equipeRepository.findById(idEquipe).get();
-
-
-       /* if (this.retrieveEtudiant(e.getIdEtudiant()).equals(etudiantRepository.findById(e.getIdEtudiant()))) {
-            this.retrieveEtudiant(e.getIdEtudiant()); // just affichage si il est existe
-            e.getEquipes().add(equip);
-            e.getContrats().add(cont);
-            etudiantRepository.save(e);
-            return e;*/
-
-       // } else {
-
+        Contrat cont = contratRepository.findById(idContrat).orElse(null);
+        Equipe equip = equipeRepository.findById(idEquipe).orElse(null);
             Etudiant Et;
             Et = this.addEtudiant(e);
             Et.getContrats().add(cont);
@@ -93,7 +82,12 @@ public class EtudiantServiceImpl implements  IEtudiantService {
 
     }
 
-
+    @Override
+    public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
+        Departement D = departementRepository.findById(idDepartement).orElse(null);
+        Set <Etudiant> E = D.getEtdiant();
+         return (List<Etudiant>) E;
+    }
 
 
 }

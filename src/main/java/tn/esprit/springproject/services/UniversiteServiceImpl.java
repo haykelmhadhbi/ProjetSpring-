@@ -52,8 +52,8 @@ public class UniversiteServiceImpl implements IUniversiteService {
 
     @Override
     public void assignUniversiteToDepartement(Integer idUniversite, Integer idDepartement) {
-        Universite Uni = universiteRespository.findById(idUniversite).get();
-        Departement Dep = departementRepository.findById(idDepartement).get();
+        Universite Uni = universiteRespository.findById(idUniversite).orElse(null);
+        Departement Dep = departementRepository.findById(idDepartement).orElse(null);
          Uni.getDepartment().add(Dep);
 
         universiteRespository.save(Uni);

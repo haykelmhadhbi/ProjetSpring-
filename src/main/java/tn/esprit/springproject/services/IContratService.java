@@ -15,7 +15,8 @@ public interface IContratService {
 
     Contrat retrieveContrat (Integer id);
 
-    void assignContratToEtudiant (Integer idC);
+    Contrat affectContratToEtudiant (Contrat ce, String nomE,String prenomE);
+
 
 
 }
