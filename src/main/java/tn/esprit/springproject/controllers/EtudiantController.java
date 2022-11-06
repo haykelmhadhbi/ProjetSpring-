@@ -8,6 +8,7 @@ import tn.esprit.springproject.services.IDetailEquipeService;
 import tn.esprit.springproject.services.IEtudiantService;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("etudiant")
@@ -50,8 +51,8 @@ public class EtudiantController {
      Etudiant ajouterAndAffecterEtudiantToEquipeAndContract(@RequestBody  Etudiant e,@PathVariable Integer idContrat,@PathVariable Integer idEquipe) {
         return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat, idEquipe );
      }
-     @GetMapping ("getEtudiantsByDepartement/{idDep} ")
-    List <Etudiant> displayEtudiantsByDepartement (@PathVariable Integer idDep){
+     @GetMapping ("getEtudiantsByDepartementt/{idDep}")
+     Set<Etudiant> displayEtudiantsByDepartement (@PathVariable Integer idDep){
         return  etudiantService.getEtudiantsByDepartement(idDep);
      }
 

@@ -2,6 +2,7 @@ package tn.esprit.springproject.services;
 
 import tn.esprit.springproject.entites.Contrat;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IContratService {
@@ -16,6 +17,8 @@ public interface IContratService {
     Contrat retrieveContrat (Integer id);
 
     Contrat affectContratToEtudiant (Contrat ce, String nomE,String prenomE);
+
+  Integer nbContratsValides(Date startDate, Date endDate);
 
 
 

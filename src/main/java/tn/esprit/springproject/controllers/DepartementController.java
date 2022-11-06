@@ -6,6 +6,8 @@ import tn.esprit.springproject.entites.Departement;
 import tn.esprit.springproject.services.IDepartmentService;
 
 import java.util.List;
+import java.util.Set;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("departmentt")
@@ -14,7 +16,7 @@ public class DepartementController {
     IDepartmentService departmentService ;
 
 
-    @GetMapping
+    @GetMapping("/get")
     List<Departement> AfficherAllDeprtrment  (){
         return departmentService.retrieveAllDepartment();
     }
@@ -38,5 +40,10 @@ public class DepartementController {
         return  departmentService.retrieveDepartment(id);
 
     }
+    @GetMapping("retrievDepByUniv/{idUniv}")
+    Set<Departement> retrieveDepartementsByUniversite (@PathVariable Integer idUniv){
+        return  departmentService.retrieveDepartementsByUniversite(idUniv);
+    }
+
 
 }

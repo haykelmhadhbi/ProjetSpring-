@@ -2,11 +2,13 @@ package tn.esprit.springproject.controllers;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springproject.entites.Contrat;
 import tn.esprit.springproject.services.IContratService;
 
+import java.util.Date;
 import java.util.List;
 
 //@Controller //ma sprinb mvc tekdhem abec de vew wost app matatikch ddonner format json
@@ -45,10 +47,16 @@ public class ContratController {
         return  contratService.retrieveContrat(id);
 
     }
-     @PutMapping("contratToetudiant/{nomE}/{prenomeE} " )
-    Contrat addContratToEtudiant ( @RequestBody  Contrat ce, @PathVariable String nomE,@PathVariable String prenomE){
-        return  contratService.affectContratToEtudiant( ce , nomE , prenomE);
-     }
+    @PutMapping("affectContratToEtudiant/{nom}/{prenom}")
+    Contrat affectContratToEtudiant (@RequestBody Contrat c ,@PathVariable  String nom ,@PathVariable String prenom){
+
+        return  contratService.affectContratToEtudiant(c,nom , prenom  );
+    }
+
+    @GetMapping ("/nbContratsValides/{startDate}/{endDate}")
+    Integer nbContratsValides(@PathVariable  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate, @PathVariable  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate){
+        return contratService.nbContratsValides(startDate,endDate);
+    }
 
 
 

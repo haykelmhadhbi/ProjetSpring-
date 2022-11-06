@@ -31,7 +31,6 @@ public class Etudiant implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idDepart")
-
     Departement depart;
 
 }

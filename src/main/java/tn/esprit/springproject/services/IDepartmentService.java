@@ -4,6 +4,7 @@ import tn.esprit.springproject.entites.Contrat;
 import tn.esprit.springproject.entites.Departement;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IDepartmentService {
 
@@ -16,6 +17,9 @@ public interface IDepartmentService {
     void deleteDepartment (Integer id);
 
     Departement retrieveDepartment (Integer id);
+
+     Set <Departement> retrieveDepartementsByUniversite(Integer idUniversite);
+
 
 
 

@@ -4,6 +4,7 @@ import tn.esprit.springproject.entites.Equipe;
 import tn.esprit.springproject.entites.Etudiant;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IEtudiantService {
 
@@ -21,7 +22,7 @@ public interface IEtudiantService {
     public void assignEtudiantToDepartement (Integer etudiantId, Integer departementId) ;
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe);
 
-    List<Etudiant> getEtudiantsByDepartement (Integer idDepartement);
+    Set<Etudiant> getEtudiantsByDepartement (Integer idDepartement);
 
 
 

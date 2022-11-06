@@ -11,6 +11,7 @@ import tn.esprit.springproject.entites.Etudiant;
 import tn.esprit.springproject.repositories.ContratRepository;
 import tn.esprit.springproject.repositories.EtudiantRepository;
 
+import java.util.Date;
 import java.util.List;
 
 //@Component
@@ -64,18 +65,48 @@ public class ContratServiceImpl implements IContratService {
 
     @Override
     public Contrat affectContratToEtudiant(Contrat ce, String nomE, String prenomE) {
-       Etudiant Et1 = etudiantRepository.retriecEtudiantByNomEtPrenom(prenomE , nomE);
+
+      Etudiant Et1 = etudiantRepository.retriecEtudiantByNomEtPrenom(prenomE , nomE);
+
        Etudiant Et2 = etudiantRepository.retriecEtudiantOuContratInf5(Et1.getIdEtudiant());
+
         if (Et2.equals(Et1)){
             ce.setEtudian(Et2);
+
 
         }
         else {
             return  null;
         }
         contratRepository.save(ce);
-        return  ce ;
+        return  contratRepository.save(ce);
 
+
+        /*Etudiant Et1 = etudiantRepository.retriecEtudiantByNomEtPrenom(prenomE , nomE);;
+        ce.setEtudian(Et1);
+        contratRepository.save(ce);
+
+        return contratRepository.save(ce);*/
+
+
+
+
+
+
+
+    }
+
+    @Override
+    public Integer nbContratsValides(Date startDate, Date endDate) {
+        int nb=0;
+        List<Contrat>C=contratRepository.findContratByDateFinContratBetween(startDate,endDate);
+
+        for(int i=0;i<C.size();i++){
+            if(C.get(i).getArchive()==false){
+                nb ++;
+            }
+        }
+        return nb;
     }
 
 

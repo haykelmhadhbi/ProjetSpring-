@@ -1,5 +1,6 @@
 package tn.esprit.springproject.entites;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -33,6 +34,7 @@ public class Departement implements Serializable {
     @OneToMany  (cascade = CascadeType.ALL, mappedBy="depart")
     @LazyCollection(LazyCollectionOption.FALSE)
 
+    @JsonIgnore
     private Set<Etudiant> etdiant;
 
 

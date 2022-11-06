@@ -83,10 +83,12 @@ public class EtudiantServiceImpl implements  IEtudiantService {
     }
 
     @Override
-    public List<Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
-        Departement D = departementRepository.findById(idDepartement).orElse(null);
-        Set <Etudiant> E = D.getEtdiant();
-         return (List<Etudiant>) E;
+    public Set <Etudiant> getEtudiantsByDepartement(Integer idDepartement) {
+        return  etudiantRepository.getEtudiantsByDepartement(idDepartement);
+
+        /*Departement D = departementRepository.findById(idDepartement).orElse(null);
+        return  D.getEtdiant();*/
+
     }
 
 
