@@ -1,5 +1,6 @@
 package tn.esprit.springproject.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.Contrat;
 import tn.esprit.springproject.entites.Departement;
@@ -14,19 +15,14 @@ import java.util.List;
 import java.util.Set;
 
 @Service
+@AllArgsConstructor
 public class EtudiantServiceImpl implements  IEtudiantService {
     EtudiantRepository etudiantRepository;
     DepartementRepository departementRepository;
     ContratRepository contratRepository;
     EquipeRepository equipeRepository;
 
-    public EtudiantServiceImpl(EtudiantRepository etudiantRepository, DepartementRepository departementRepository
-            , ContratRepository contraRepository, EquipeRepository equipeRepository) {
-        this.etudiantRepository = etudiantRepository;
-        this.departementRepository = departementRepository;
-        this.contratRepository = contraRepository;
-        this.equipeRepository = equipeRepository;
-    }
+
 
     @Override
     public List<Etudiant> retrieveAllEtudiant() {
