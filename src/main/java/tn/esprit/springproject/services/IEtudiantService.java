@@ -24,6 +24,9 @@ public interface IEtudiantService {
 
     Set<Etudiant> getEtudiantsByDepartement (Integer idDepartement);
 
+    Set <Etudiant> getEtudiantsByProfesseur (String prenomP , String nomP);
+
+
 
 
 }

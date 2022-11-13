@@ -2,14 +2,8 @@ package tn.esprit.springproject.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import tn.esprit.springproject.entites.Contrat;
-import tn.esprit.springproject.entites.Departement;
-import tn.esprit.springproject.entites.Equipe;
-import tn.esprit.springproject.entites.Etudiant;
-import tn.esprit.springproject.repositories.ContratRepository;
-import tn.esprit.springproject.repositories.DepartementRepository;
-import tn.esprit.springproject.repositories.EquipeRepository;
-import tn.esprit.springproject.repositories.EtudiantRepository;
+import tn.esprit.springproject.entites.*;
+import tn.esprit.springproject.repositories.*;
 
 import java.util.List;
 import java.util.Set;
@@ -21,6 +15,7 @@ public class EtudiantServiceImpl implements  IEtudiantService {
     DepartementRepository departementRepository;
     ContratRepository contratRepository;
     EquipeRepository equipeRepository;
+    ProfesseurRepository professeurRepository ;
 
 
 
@@ -85,6 +80,12 @@ public class EtudiantServiceImpl implements  IEtudiantService {
         /*Departement D = departementRepository.findById(idDepartement).orElse(null);
         return  D.getEtdiant();*/
 
+    }
+
+    @Override
+    public Set<Etudiant> getEtudiantsByProfesseur(String prenomP, String nomP) {
+        Professeur P = professeurRepository.getProfesseurByPrenomPAndNomP(prenomP, nomP);
+        return  P.getEtudiants();
     }
 
 
