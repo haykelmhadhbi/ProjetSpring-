@@ -22,12 +22,16 @@ public class Etudiant implements Serializable {
     private String prenomE;
     @NonNull
     private String nomE;
+    private Integer ageE;
+    private String emailE;
+
 
     @Enumerated(EnumType.STRING)
     private Option opt ;
 
     @OneToMany(cascade = CascadeType.ALL , mappedBy ="etudian" )
     private Set<Contrat> contrats;
+    private String sexe;
 
     @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
     private Set<Equipe> equipes;

@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("etudiant")
+//@RequestMapping("etudiant")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class EtudiantController {
     IEtudiantService etudiantService;
 
@@ -19,23 +20,23 @@ public class EtudiantController {
         this.etudiantService = etudiantService;
     }
 
-    @GetMapping
+    @GetMapping("/getEtudiant")
     List<Etudiant> retrieveAllEtudiant() {
         return etudiantService.retrieveAllEtudiant();
     }
 
-    @PostMapping("/ajouteretudiant")
+    @PostMapping("/ajouterEtudiant")
     Etudiant AjourterEtudiant(@RequestBody Etudiant e) {
         return etudiantService.addEtudiant(e);
     }
 
-    @PutMapping("modifieretudiant")
+    @PutMapping("/modifieretudiant")
     Etudiant ModifierEtudiant(@RequestBody Etudiant e) {
         return etudiantService.updateEtudiant(e);
     }
 
-    @DeleteMapping("supprimeretudiant /{id}")
-    void SupprimerEtudiant(@PathVariable Integer id) {
+    @DeleteMapping("/supprimeretudiant")
+    void SupprimerEtudiant(@RequestParam Integer id) {
         etudiantService.deleteEtudiant(id);
     }
 
