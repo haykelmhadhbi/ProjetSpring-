@@ -13,14 +13,14 @@ import java.util.Set;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class Etudiant implements Serializable {
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idEtudiant;
     private String prenomE;
-    @NonNull
+   // @NonNull
     private String nomE;
     private Integer ageE;
     private String emailE;
