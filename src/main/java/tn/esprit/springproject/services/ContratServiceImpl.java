@@ -116,5 +116,10 @@ public class ContratServiceImpl implements IContratService {
         return  contratRepository.findContratsBySpecialite(sp);
     }
 
+    @Override
+    public Set<Contrat> allContratWithSameMontant(Integer montant) {
+        return contratRepository.findContratsByMontantContrat(montant);
+    }
+
 
 }

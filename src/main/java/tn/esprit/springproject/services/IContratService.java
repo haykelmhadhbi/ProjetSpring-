@@ -24,6 +24,9 @@ public interface IContratService {
 
   Set<Contrat> allContratBySpecialite (Specialite sp);
 
+    Set<Contrat> allContratWithSameMontant (Integer montant);
+
+
 
 
 }

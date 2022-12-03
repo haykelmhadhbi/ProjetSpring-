@@ -65,6 +65,12 @@ public class ContratController {
         return contratService.allContratBySpecialite(specialite);
     }
 
+    @GetMapping("/allContratwithMont/{mont}")
+    Set <Contrat> allContratwithsameMont (@PathVariable Integer mont){
+        return  contratService.allContratWithSameMontant(mont);
+    }
+
+
 
 
 

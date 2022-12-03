@@ -24,5 +24,7 @@ public interface ContratRepository extends JpaRepository<Contrat ,Integer > {//k
 
     Set <Contrat> findContratsBySpecialite(Specialite sp);
 
+    Set <Contrat> findContratsByMontantContrat (Integer mont);
+
 }
 
