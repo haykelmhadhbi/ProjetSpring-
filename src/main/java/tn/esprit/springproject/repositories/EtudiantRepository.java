@@ -38,13 +38,15 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 
     @Query("select  Et from Etudiant  Et   , Departement  dep  where Et.depart.idDepart = dep.idDepart and dep.nomDepart=: nomdep ")
     Set <Etudiant> getEtudwithNamdepa (@Param("nomdep") String nomdep);
-  Set <Etudiant> findEtudiantsByDepartNomDepart(String nom);
-    Set<Etudiant> findEtudiantsByNomE(String Nom);
+  //Set <Etudiant> findEtudiantsByDepartNomDepart(String nom);
+    //Set<Etudiant> findEtudiantsByNomE(String Nom);
 
 
     @Query ("select  E from  Etudiant  E where E.nomE=:nomEt")
     Etudiant findEtudiantByNomE (@Param("nomEt") String nomEt);
 
+    @Query ("select E from Etudiant  E INNER JOIN E.equipes equipe INNER join DetailEquipe  detailequipe ON equipe.Detail_equipe.idDetailEquipe=detailequipe.idDetailEquipe where detailequipe.salle=:numero ")
+    Set<Etudiant> getAllEtudiantBynumerosalledetaequipe (@Param("numero") Integer numero);
 
 
 

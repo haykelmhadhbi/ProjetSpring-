@@ -33,5 +33,7 @@ public interface IEtudiantService {
 
     public Set<Etudiant> addEtudbyOptToProfDepartmentAdispo(Option op , Matiere m, Integer nbr);
 
+     Set <Etudiant> getAllEtudiantByNumerodeSal (Integer numSalle);
+
 
 }

@@ -28,7 +28,7 @@ public class Professeur implements Serializable {
     private Integer nbrHeursEtud;
     private  Boolean conge;
 
-@JsonIgnore
+
     @ManyToMany( cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
 

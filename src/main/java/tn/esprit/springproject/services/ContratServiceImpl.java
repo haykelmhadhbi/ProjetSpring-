@@ -8,11 +8,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.Contrat;
 import tn.esprit.springproject.entites.Etudiant;
+import tn.esprit.springproject.entites.Specialite;
 import tn.esprit.springproject.repositories.ContratRepository;
 import tn.esprit.springproject.repositories.EtudiantRepository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 //@Component
 
@@ -107,6 +109,11 @@ public class ContratServiceImpl implements IContratService {
             }
         }
         return nb;
+    }
+
+    @Override
+    public Set<Contrat> allContratBySpecialite(Specialite sp) {
+        return  contratRepository.findContratsBySpecialite(sp);
     }
 
 

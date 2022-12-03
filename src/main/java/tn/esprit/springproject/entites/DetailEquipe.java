@@ -23,7 +23,7 @@ public class DetailEquipe implements Serializable {
     private Integer salle ;
     private String thematique ;
 
-    @OneToOne(mappedBy = "Detail_equipe")
-   // @JsonIgnore//j'ai ignorer le type json fi equipe djibli detail equipe ema fi detail equipe madjiblich equipe
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "Detail_equipe")
+    @JsonIgnore//j'ai ignorer le type json fi equipe djibli detail equipe ema fi detail equipe madjiblich equipe
     private Equipe equipe;
 }

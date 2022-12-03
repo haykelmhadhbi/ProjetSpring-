@@ -5,9 +5,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import tn.esprit.springproject.entites.Contrat;
+import tn.esprit.springproject.entites.Specialite;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 
 @Repository // comme si devloppeur donner un signe a l application qui le compsoant contartrepostry 7achti bih ykoun mawjoud fi ioc. , je declarer un composant eli 7atito fi ioc il houwa mawjopud fi couche acces au bas de donner
@@ -19,6 +21,8 @@ public interface ContratRepository extends JpaRepository<Contrat ,Integer > {//k
     List<Contrat> getContratByDate (Date starDate, Date EndDATE );
 
     List<Contrat>findContratByDateFinContratBetween (Date date1,Date date2);
+
+    Set <Contrat> findContratsBySpecialite(Specialite sp);
 
 }
 

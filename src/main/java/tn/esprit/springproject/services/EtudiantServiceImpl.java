@@ -127,6 +127,11 @@ public class EtudiantServiceImpl implements  IEtudiantService {
         return  EList;
     }
 
+    @Override
+    public Set<Etudiant> getAllEtudiantByNumerodeSal(Integer numSalle) {
+          return  etudiantRepository.getAllEtudiantBynumerosalledetaequipe(numSalle);
+    }
+
 
 }
 

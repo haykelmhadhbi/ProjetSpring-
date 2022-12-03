@@ -6,10 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springproject.entites.Contrat;
+import tn.esprit.springproject.entites.Specialite;
 import tn.esprit.springproject.services.IContratService;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 //@Controller //ma sprinb mvc tekdhem abec de vew wost app matatikch ddonner format json
 @RestController//ll requet web http kahaw yansalk requet http = @controller +@Responsebody directment exposer de rest api donc restcontrroller
@@ -56,6 +58,11 @@ public class ContratController {
     @GetMapping ("/nbContratsValides/{startDate}/{endDate}")
     Integer nbContratsValides(@PathVariable  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate, @PathVariable  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate){
         return contratService.nbContratsValides(startDate,endDate);
+    }
+
+    @GetMapping("/allContratBySpecialite/{specialite}")
+    Set <Contrat> allContratBySpecialite (@PathVariable Specialite specialite){
+        return contratService.allContratBySpecialite(specialite);
     }
 
 

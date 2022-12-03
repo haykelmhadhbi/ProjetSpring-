@@ -92,6 +92,12 @@ public class EtudiantController {
         return  etudiantService.addEtudbyOptToProfDepartmentAdispo(o, m, nbr);
     }
 
+    @GetMapping("/getAllEtudiantBySalleDetailequipe/{numSalle}")
+
+    Set <Etudiant> getEtudiantsBySalleDetailequipe (@PathVariable Integer numSalle){
+        return  etudiantService.getAllEtudiantByNumerodeSal(numSalle);
+    }
+
 
 
 
