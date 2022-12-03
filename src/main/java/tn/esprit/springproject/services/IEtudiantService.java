@@ -1,7 +1,6 @@
 package tn.esprit.springproject.services;
 
-import tn.esprit.springproject.entites.Equipe;
-import tn.esprit.springproject.entites.Etudiant;
+import tn.esprit.springproject.entites.*;
 
 import java.util.List;
 import java.util.Set;
@@ -26,7 +25,13 @@ public interface IEtudiantService {
 
     Set <Etudiant> getEtudiantsByProfesseur (String prenomP , String nomP);
 
+    Etudiant addAndAssignEtudiantToEquipeByNiveau(Etudiant e , Niveau n);
 
+    List <Etudiant> getEtudiantByOption (Option op);
+
+    List <Etudiant> getEtudiantBySexe (String sexe);
+
+    public Set<Etudiant> addEtudbyOptToProfDepartmentAdispo(Option op , Matiere m, Integer nbr);
 
 
 }

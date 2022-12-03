@@ -1,6 +1,7 @@
 package tn.esprit.springproject.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tn.esprit.springproject.entites.*;
 import tn.esprit.springproject.repositories.*;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class EtudiantServiceImpl implements  IEtudiantService {
     EtudiantRepository etudiantRepository;
     DepartementRepository departementRepository;
@@ -88,6 +90,49 @@ public class EtudiantServiceImpl implements  IEtudiantService {
         return  P.getEtudiants();
     }
 
+    @Override
+    public Etudiant addAndAssignEtudiantToEquipeByNiveau(Etudiant e, Niveau n) {
+            List<Equipe> Lequipe = equipeRepository.findEquipesByNiveau(n);
+            Etudiant E =etudiantRepository.save(e);
+
+        for(Equipe Et : Lequipe){
+                Et.getEtudiants().add(E);
+                equipeRepository.save(Et);
+        }
+
+            return  E;
+        }
+
+    @Override
+    public List<Etudiant> getEtudiantByOption(Option op) {
+        List<Etudiant> E =etudiantRepository.findEtudiantsByOpt(op);
+        return  E ;
+    }
+
+    @Override
+    public List<Etudiant> getEtudiantBySexe(String sexe) {
+
+            List <Etudiant> LEtudBySexe = etudiantRepository.findEtudiantsBySexe(sexe);
+            return  LEtudBySexe;
+    }
+
+    @Override
+    public Set<Etudiant> addEtudbyOptToProfDepartmentAdispo(Option op , Matiere m , Integer nbr) {
+        Set<Etudiant> EList = etudiantRepository.getEtudiantsByOpt(op);
+        Set<Professeur>pListe = professeurRepository.getProfDispoAndHeurMinThen5(m,nbr);
+        for (Professeur P : pListe){
+            P.setEtudiants(EList);
+            professeurRepository.save(P);
+        }
+        return  EList;
+    }
+
 
 }
+
+
+
+
+
+
 

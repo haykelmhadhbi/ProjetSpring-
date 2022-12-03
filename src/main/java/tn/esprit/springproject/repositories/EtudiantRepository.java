@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 import tn.esprit.springproject.entites.Contrat;
 import tn.esprit.springproject.entites.Etudiant;
+import tn.esprit.springproject.entites.Option;
+import tn.esprit.springproject.entites.Professeur;
 
 import java.util.Date;
 import java.util.List;
@@ -26,4 +28,27 @@ public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
 
     @Query ("select  e from Etudiant  e where e.depart.idDepart =?1")
     Set <Etudiant> getEtudiantsByDepartement (Integer idDep );
+
+    List<Etudiant> findEtudiantsByOpt(Option o);
+
+    List<Etudiant> findEtudiantsBySexe(String sexe);
+
+    @Query ("select  e from Etudiant  e  where  e.opt=:opt and e.depart.nomDepart='A'")
+    Set <Etudiant> getEtudiantsByOpt (@Param("opt") Option opt );
+
+    @Query("select  Et from Etudiant  Et   , Departement  dep  where Et.depart.idDepart = dep.idDepart and dep.nomDepart=: nomdep ")
+    Set <Etudiant> getEtudwithNamdepa (@Param("nomdep") String nomdep);
+  Set <Etudiant> findEtudiantsByDepartNomDepart(String nom);
+    Set<Etudiant> findEtudiantsByNomE(String Nom);
+
+
+    @Query ("select  E from  Etudiant  E where E.nomE=:nomEt")
+    Etudiant findEtudiantByNomE (@Param("nomEt") String nomEt);
+
+
+
+
+
+
+
 }

@@ -3,6 +3,9 @@ package tn.esprit.springproject.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springproject.entites.Etudiant;
+import tn.esprit.springproject.entites.Matiere;
+import tn.esprit.springproject.entites.Niveau;
+import tn.esprit.springproject.entites.Option;
 import tn.esprit.springproject.services.IDepartmentService;
 import tn.esprit.springproject.services.IDetailEquipeService;
 import tn.esprit.springproject.services.IEtudiantService;
@@ -40,7 +43,7 @@ public class EtudiantController {
         etudiantService.deleteEtudiant(id);
     }
 
-    @GetMapping("afficheralletduiant/{id}")
+    @GetMapping("afficherAllEtduiant/{id}")
     Etudiant retrieveEtudiant(@PathVariable Integer id) {
 
         return etudiantService.retrieveEtudiant(id);
@@ -66,6 +69,36 @@ public class EtudiantController {
     Set<Etudiant>getEtudiantByProfesseur (@PathVariable String prenomP , @PathVariable String nomP){
         return etudiantService.getEtudiantsByProfesseur(prenomP , nomP);
     }
+
+    @PostMapping("/addEtudiantandAffectToEquipe/{N}")
+        Etudiant addAndAssignEtudiantToEquipeByNiveau (@RequestBody Etudiant e , @PathVariable Niveau N){
+        return  etudiantService.addAndAssignEtudiantToEquipeByNiveau(e,N);
+
+    }
+    @GetMapping("/getEtudiantByOption/{Op}")
+    public List<Etudiant> getEtudiantByOption(@PathVariable Option Op){
+        return  etudiantService.getEtudiantByOption(Op);
+    }
+
+    @GetMapping("/getEtudiantBySexe/{sexe}")
+
+    public List<Etudiant> getEtudiantBySexe (@PathVariable String sexe){
+        return etudiantService.getEtudiantBySexe(sexe);
+    }
+
+    @PostMapping("/addEtuToProfbyOptionandMatier/{o}/{m}/{nbr}")
+
+    public Set<Etudiant> addEtByOptAndMatierProf (@PathVariable  Option o , @PathVariable  Matiere m , @PathVariable Integer nbr ){
+        return  etudiantService.addEtudbyOptToProfDepartmentAdispo(o, m, nbr);
+    }
+
+
+
+
+
+
+
+
 }
 
 

@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
+//@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 //@RequiredArgsConstructor
@@ -28,17 +28,18 @@ public class Etudiant implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Option opt ;
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL , mappedBy ="etudian" )
     private Set<Contrat> contrats;
     private String sexe;
-
+    @JsonIgnore
     @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
     private Set<Equipe> equipes;
 
+
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idDepart")
-    Departement depart;
+    // @JoinColumn(name = "idDepart")
+    private Departement depart;
     @JsonIgnore
     @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
     private Set<Professeur> professeurs;

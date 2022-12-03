@@ -7,6 +7,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,14 +29,13 @@ public class Departement implements Serializable {
 
     private Integer idDepart ;
    @NonNull
+
     private  String nomDepart ;
-
-
-    @OneToMany  (cascade = CascadeType.ALL, mappedBy="depart")
-    @LazyCollection(LazyCollectionOption.FALSE)
-
     @JsonIgnore
+    @OneToMany  (cascade = CascadeType.ALL, mappedBy="depart")
+    //@LazyCollection(LazyCollectionOption.FALSE)
     private Set<Etudiant> etdiant;
+
 
 
    //  Departement departement = Departement.builder().nomDepart("info").build();

@@ -25,13 +25,14 @@ public class Professeur implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private  Matiere matiere;
-    private Integer nbrHeursParJr;
-    private  Integer nbrJours;
+    private Integer nbrHeursEtud;
     private  Boolean conge;
 
-    //@JsonIgnore
+@JsonIgnore
     @ManyToMany( cascade = CascadeType.ALL)
     private Set<Etudiant> etudiants;
+
+
 
 
 

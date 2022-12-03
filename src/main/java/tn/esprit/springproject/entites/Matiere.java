@@ -1,10 +1,12 @@
 package tn.esprit.springproject.entites;
 
 public enum Matiere {
-     MATHEMATIQUES,
-     INFORMATIQUE,
-     PHYSIQUE,
-     CHIMIE,
-     ELECTRONIQUE ,
+     SPRINGBOOT,
+     NOSQL,
+     SSERVICE_WEB,
+     ANGULAR,
+     DATA_MINING ,
+     SOA,
+     RESEAU
 
     }
